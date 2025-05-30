@@ -1,11 +1,3 @@
-// const firstName: string = 'Artem';
-// const lastName: string = 'Iliev';
-// console.log(`${firstName} ${lastName}`);
-// for(let i = 0; i < 10; i++){
-//     if(i % 2 === 0){
-//         console.log(`Парні числа з циклу for - ${i}`);
-//     }
-// };
 const form = document.querySelector('#factorial-form'), stepsList = document.querySelector('#factorial-steps');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -18,5 +10,19 @@ form.addEventListener('submit', (e) => {
         const listItem = document.createElement('li');
         listItem.textContent = `${factorial}`;
         stepsList.appendChild(listItem);
+    }
+});
+const ageForm = document.querySelector('#age-form'), response = document.querySelector('#message');
+ageForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nameInput = document.querySelector('#name');
+    const ageInput = document.querySelector('#age');
+    const name = nameInput.value;
+    const age = Number(ageInput.value);
+    if (age >= 18) {
+        response.textContent = `${name}, aлкоголь дозволений`;
+    }
+    else {
+        response.textContent = `${name}, aлкоголь заборонений`;
     }
 });
