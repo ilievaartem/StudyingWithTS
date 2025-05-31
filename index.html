@@ -5,28 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <h1>Факторіал числа</h1>
-    <form id="factorial-form">
-        <label>
-            Уведіть число:
-            <input type="number" id="number" required />
-        </label>
-        <button type="submit">Обчислити</button>
-    </form>
-    <ol id="factorial-steps"></ol>
-    <form id="age-form">
-        <label>
-            Уведіть ваше ім'я:
-            <input type="text" id="name" required />
-        </label>
-        <label>
-            Уведіть вік:
-            <input type="number" id="age" required />
-        </label>
-        <button type="submit">Придбати алкоголь</button>
-    </form>
-    <div id="message"></div>
+    <p>Оберіть колір фону:</p>
+    <select id="colorSelect"></select>
+    <br />
+    <label>
+        Уведіть хобі:
+        <input type="text" id="text" required />
+    </label>
+    <br />
+    <label>
+        Як довго ви ним займаєтеся?:
+        <input type="number" id="number" required />
+    </label>
+
+    <button id="applyBtn">Застосувати параметри</button>
+    
+    <div id="result"></div>
     <script src="./src/index.js" defer></script> 
 </body>
 </html>
