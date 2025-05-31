@@ -112,3 +112,45 @@ const books: Book[] = [
 for (let book of books) {
     console.log(`Книга: ${book.title}, автор: ${book.author}, ціна: ${book.price}$`);
 };
+
+//hw
+type Student = {
+    name: string;
+    course: number;
+    averageGrade: number;
+};
+
+const students: Student[] = [
+    { name: 'John', course: 3, averageGrade: 4.8 },
+    { name: 'Jane', course: 2, averageGrade: 4.2 },
+    { name: 'Jame', course: 2, averageGrade: 5 }
+];
+
+let sumGrade: number = 0;
+
+let GPA!: number;
+let higherGrade: number = students[0].averageGrade;
+let higherGradeStudent: Student | null = null;
+for(let student of students) {
+    sumGrade += student.averageGrade;
+    
+    if(higherGrade < student.averageGrade) {
+        higherGrade = student.averageGrade;
+        higherGradeStudent = student;
+    }
+}
+GPA = sumGrade / students.length;
+console.log(GPA);
+console.log(higherGrade);
+console.log(higherGradeStudent);
+
+//Enums
+enum AccessLevel {
+    Guest = 'Гість',
+    User = 'Користувач',
+    Moderator = 'Модератор',
+    Admin = 'Адміністратор'
+}
+
+const currentLevel: AccessLevel = AccessLevel.Moderator;
+console.log(`Ваш рівень доступу - ${currentLevel}`);
