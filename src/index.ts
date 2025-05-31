@@ -109,9 +109,9 @@ const books: Book[] = [
     { title: 'Гаррі Поттер і філософський камінь', author: 'Джоан Роулінг', price: 10 }
 ];
 
-for (let book of books) {
-    console.log(`Книга: ${book.title}, автор: ${book.author}, ціна: ${book.price}$`);
-};
+// for (let book of books) {
+//     console.log(`Книга: ${book.title}, автор: ${book.author}, ціна: ${book.price}$`);
+// };
 
 //hw
 type Student = {
@@ -140,9 +140,6 @@ for(let student of students) {
     }
 }
 GPA = sumGrade / students.length;
-console.log(GPA);
-console.log(higherGrade);
-console.log(higherGradeStudent);
 
 //Enums
 enum AccessLevel {
@@ -153,4 +150,86 @@ enum AccessLevel {
 }
 
 const currentLevel: AccessLevel = AccessLevel.Moderator;
-console.log(`Ваш рівень доступу - ${currentLevel}`);
+
+//Functions
+//1
+function calcRectangkeArea(length: number, width: number): number {
+    return length * width;
+}
+
+//2
+enum Role {
+    Guest = 'Гість',
+    User = 'Користувач',
+    Admin = 'Адміністратор'
+}
+
+type User = {
+    name: string,
+    age: number,
+    role: Role
+}
+
+function createUser(name: string, age: number, role: Role = Role.Guest): User {
+    return {
+        name,
+        age,
+        role
+    }
+}
+
+const user1 = createUser('John', 22, Role.Admin);
+const user2 = createUser('Jane', 30, Role.User);
+const user3 = createUser('Jame', 44);
+
+//3
+function validatePassword(password: string, minLength?: number): boolean {
+    if(minLength === undefined){
+        minLength = 6;
+    }
+
+    return password.length >= minLength
+}
+
+//4
+function calcAverage(...numbers: Array<number>): number {
+    if(numbers.length === 0) {
+        console.log('Список чисел порожній');
+        return 0;
+    }
+
+    const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+    return sum / numbers.length;
+};
+
+//hw
+type Groсery = {
+    name: string,
+    price: number
+}
+
+function calcSumOfOrder(grocery: Array<Groсery>): number {
+    if(grocery.length === 0) {
+        console.log('Замовлення порожнє');
+        return 0;
+    }
+
+    let total = 0;
+    for (const product of grocery) {
+        if(product.price <= 0){
+            console.log(`Некоректна ціна продукту: "${product.name}"`);
+            continue;
+        }
+        total += product.price;
+    }
+    return total;
+};
+
+const products: Array<Groсery> = [
+    { name: 'Футболка', price: 25 },
+    { name: 'Шорти', price: 30 },
+    { name: 'Носки', price: -5 }
+];
+
+const orderTotal = calcSumOfOrder(products);
+console.log(orderTotal);
